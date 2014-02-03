@@ -27,7 +27,7 @@ class Taxonomy {
             $term->weight = 0;
 
             taxonomy_term_save($term);
-            
+
             return $term;
         }
 

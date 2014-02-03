@@ -1,0 +1,19 @@
+{% set node = build['#node'] %}
+
+{{ build|render }}
+
+{% if node.commit_issue %}
+    {% set issue = node_load(node.commit_issue.und.0.target_id) %}
+    {% set url = 'https://drupal.org/node/' ~ issue.issue_nid.und.0.value %}
+
+
+    <h2><a href="{{ url }}">{{ issue.title }}</a></h2>
+
+    {% set issue = entity_view('node', [issue]).node|first %}
+    {{ issue.issue_component|render }}
+    {{ issue.issue_tags|render }}
+    {{ issue.body|render }}
+
+    <h2>Related issues</h2>
+    {{ 'issues'|drupalView('default', issue.issue_tags['#items'].0.tid, issue['#node'].nid) }}
+{% endif %}

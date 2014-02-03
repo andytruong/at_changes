@@ -1,0 +1,5 @@
+entity_templates:
+    node:
+        commit:
+            full:
+                template: '@changes/templates/node-commit.html.twig'

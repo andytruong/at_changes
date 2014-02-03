@@ -41,6 +41,14 @@ function changes_css_to_xpath($query) {
 }
 
 /**
+ * Implements hook_entity_template()
+ */
+function changes_entity_view_alter(&$build, $entity_type) {
+    at_id(new Drupal\at_base\Hook\Entity\View_Alter($build, $entity_type))
+      ->execute();
+}
+
+/**
  * Implements hook_url_outbound_alter()
  *
  * Change /taxonomy/term/%tag-id => /search?tag=%tag-name
