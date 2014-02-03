@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Changes Features feature.
+ */
+
+include_once 'changes_features.features.inc';
