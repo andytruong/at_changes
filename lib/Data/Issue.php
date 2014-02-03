@@ -64,10 +64,12 @@ class Issue
         $i_node->uid = 1;
         $i_node->{$f_nid}['und'][0]['value'] = $this->issue_id;
 
+        $i_node->{$f_component} = array();
         foreach ($stub_taxo->terms($this->component, $f_component) as $term) {
             $i_node->{$f_component}['und'][] = array('tid' => $term->tid);
         }
 
+        $i_node->{$f_tags} = array();
         foreach ($stub_taxo->terms($this->tags, $f_tags) as $term) {
             $i_node->{$f_tags}['und'][] = array('tid' => $term->tid);
         }
