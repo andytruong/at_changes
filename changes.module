@@ -1,0 +1,41 @@
+<?php
+
+class CHANGES {
+     const TYPE_COMMIT = 'commit';
+
+     const FIELD_COMMIT_SHA1 = 'commit_sha1';
+     const FIELD_COMMIT_ISSUE = 'commit_issue';
+     const FIELD_COMMIT_AUTHOR = 'commit_author';
+     const FIELD_COMMIT_MESSAGE = 'commit_message';
+
+     const TYPE_ISSUE = 'issue';
+     const VOCAB_ISSUE_COMPONENT = 'issue_component';
+     const VOCAB_ISSUE_TAGS = 'tags';
+     const FIELD_ISSUE_NID = 'issue_nid';
+     const FIELD_ISSUE_COMPONENT = 'issue_component';
+     const FIELD_ISSUE_TAGS = 'issue_tags';
+     const FIELD_ISSUE_RELATED = 'issue_related';
+     const FIELD_ISSUE_CHANGE_RECORDS = 'issue_change_notices';
+
+     const TYPE_CHANGE_NOTICE = 'changenotice';
+     const FIELD_CHANGE_NID = 'change_nid';
+}
+
+/**
+ * Convert CSS query to XPath query.
+ *
+ * @param  string $query CSS Query
+ * @return string Xpath queyr
+ */
+function changes_css_to_xpath($query) {
+  if (!class_exists('Symfony\Component\CssSelector\CssSelector')) {
+    at_id(
+      new Drupal\at_base\Autoloader(
+        'Symfony\Component\CssSelector',
+        at_library('sf2.css_selector')
+      )
+    )->register();
+  }
+
+  return Symfony\Component\CssSelector\CssSelector::toXPath($query);
+}

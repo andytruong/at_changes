@@ -1,0 +1,7 @@
+name = Changes
+version = 7.x-1.x
+description = "Import changes from Drupal.org"
+core = 7.x
+package = Andy Truong
+
+dependencies[] = at_base

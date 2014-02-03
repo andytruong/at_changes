@@ -1,0 +1,14 @@
+services:
+  changes.git:
+    class: 'Drupal\changes\Fetcher\Git'
+    arguments: ['%changes:git:path']
+
+  changes.importer:
+    class: 'Drupal\changes\Importer'
+    arguments: ['@changes.git']
+
+  changes.issue:
+    class: 'Drupal\changes\Issue'
+
+  changes.stub.node:
+      class: 'Drupal\changes\Stub\Node'
