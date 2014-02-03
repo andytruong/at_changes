@@ -81,8 +81,9 @@ class Commit
 
         $c_node->status = 1;
         $c_node->created = $c_node->changed = $this->date->getTimestamp();
-        $c_node->title = truncate_utf8($this->message, 128);
         $c_node->uid = $author->uid;
+        $c_node->title = preg_replace('/Issue #\d+ by .+: (.+)$/', '$1', $this->message);
+        $c_node->title = truncate_utf8($c_node->title, 128);
 
         $c_node->{\CHANGES::FIELD_COMMIT_SHA1}['und'][0]['value'] = $this->sha1;
         $c_node->{\CHANGES::FIELD_COMMIT_AUTHOR}['und'][0]['value'] = $this->author;
