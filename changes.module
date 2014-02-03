@@ -85,3 +85,12 @@ function changes_url_outbound_alter(&$path, &$options, $original_path) {
         }
     }
 }
+
+/**
+ * Implements hook_cron().
+ */
+function changes_cron() {
+    at_container('changes.importer')
+      ->setLimit(100)
+      ->import();
+}

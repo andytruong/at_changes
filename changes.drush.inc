@@ -11,6 +11,8 @@ function changes_drush_command() {
 /**
  * Callback for changes_import — drush command.
  */
-function changes_drush_command_import() {
-    at_container('changes.importer')->import();
+function changes_drush_command_import($limit = 0) {
+    at_container('changes.importer')
+      ->setLimit($limit)
+      ->import();
 }

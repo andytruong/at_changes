@@ -10,9 +10,19 @@ class Importer
      */
     private $git;
 
+    /**
+     * @var int
+     */
+    private $limit = 0;
+
     public function __construct($git)
     {
         $this->git = $git;
+    }
+
+    public function setLimit($limit) {
+        $this->limit = $limit;
+        return $this;
     }
 
     /**
@@ -36,7 +46,13 @@ class Importer
 
     public function import()
     {
+        $counter = 0;
+
         foreach ($this->git->getD8Revisions() as $commit) {
+            if ($this->limit && $counter++ >= $this->limit) {
+                break;
+            }
+
             // Somecase, author field is empty
             $commit['author'] = !empty($commit['author']) ? $commit['author'] : 'Dries Buytaert <dries@buytaert.net>';
 
