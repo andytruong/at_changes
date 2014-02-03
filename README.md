@@ -3,7 +3,7 @@ Install
 
 1. Enable changes_features and chagnes modules
 2. Run `drush atr` to make sure dependencies are downloaded
-3. Clone Drupal repository to /var/aegir/platforms/d8dev:
+3. Clone Drupal repository to `/var/aegir/platforms/d8dev`:
     - `mkdir -p /var/aegir/platforms`
     - `git clone --branch=8.x https://github.com/drupal/drupal.git d8dev`
 4. Run Drush command: `drush changes_import`
