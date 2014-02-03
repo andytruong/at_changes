@@ -39,3 +39,41 @@ function changes_css_to_xpath($query) {
 
   return Symfony\Component\CssSelector\CssSelector::toXPath($query);
 }
+
+/**
+ * Implements hook_url_outbound_alter()
+ *
+ * Change /taxonomy/term/%tag-id => /search?tag=%tag-name
+ */
+function changes_url_outbound_alter(&$path, &$options, $original_path) {
+  if (empty($path)) {
+        return;
+    }
+
+    if (0 !== strpos($original_path, 'taxonomy/term/')) {
+        return;
+    }
+
+    if (!isset($options['entity'])) {
+        $options['entity_type'] = 'taxonomy_term';
+
+        // Get Term ID from path
+        $tid = preg_replace('`taxonomy/term/(\d+)`', '$1', $original_path);
+
+        $options['entity'] = taxonomy_term_load($tid);
+    }
+
+    if (!empty($options['entity'])) {
+        switch ($options['entity']->vocabulary_machine_name) {
+            case CHANGES::VOCAB_ISSUE_TAGS:
+                $path = 'commits';
+                $options['query']['tags'] = $options['entity']->name;
+                break;
+
+            case CHANGES::VOCAB_ISSUE_COMPONENT:
+                $path = 'commits';
+                $options['query']['component'] = $options['entity']->tid;
+                break;
+        }
+    }
+}
