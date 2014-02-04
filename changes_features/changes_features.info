@@ -1,7 +1,7 @@
 name = Changes Features
 core = 7.x
 package = Features
-version = 7.x-2.1
+version = 7.x-1.0
 project = changes_features
 dependencies[] = at_base
 dependencies[] = changes

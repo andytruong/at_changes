@@ -27,11 +27,17 @@ function changes_features_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'views-components-block' => array(
+          'module' => 'views',
+          'delta' => 'components-block',
+          'region' => 'sidebar_second',
+          'weight' => '-10',
+        ),
         'tagclouds-1' => array(
           'module' => 'tagclouds',
           'delta' => '1',
           'region' => 'sidebar_second',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
       ),
     ),
