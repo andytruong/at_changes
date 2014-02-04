@@ -6,8 +6,10 @@ Install
 3. Clone Drupal repository to `/var/aegir/platforms/d8dev`:
     - `mkdir -p /var/aegir/platforms`
     - `git clone --branch=8.x https://github.com/drupal/drupal.git d8dev`
-4. Run Drush command: `drush changes_import`
-5. Commits are now available at: /commits
+4. Change owner of /var/aegir/platforms/d8dev to cron runner, config cronjob for
+    Drupal to auto import new changes.
+5. Run Drush command: `drush changes_import`
+6. Commits are now available at: /commits
 
 Todo
 ---

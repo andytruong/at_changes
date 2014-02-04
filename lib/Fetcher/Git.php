@@ -6,4 +6,12 @@ class Git extends Git_Sebastian {
         //  --reverse
         return $this->getRevisions('git log --no-merges --date-order --format=medium --after="'. $since .'"');
     }
+
+    public function pull($source, $branch) {
+        $this->execute(
+            "git pull {$source} {$branch} --force --quiet 2>&1",
+            $output,
+            $return
+        );
+    }
 }
