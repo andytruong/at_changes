@@ -16,7 +16,7 @@ class Node {
     private function getExistingNode($bundle, $field, $value) {
         $query = $this->getNodeQuery($bundle, $field, $value);
         if ($results = $query->execute()) {
-            $nid = reset(array_keys(reset($results)));
+            $nid = @reset(array_keys(reset($results)));
             if ($node = node_load($nid)) {
                 return $node;
             }

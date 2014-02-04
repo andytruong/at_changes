@@ -80,9 +80,10 @@ class Issue
             }
         }
 
+        $i_node->{$f_change} = array();
         foreach ($this->changeRecordsIds as $nid) {
             if ($r_node = $stub_node->nodeChangeNotice($nid)) {
-                $i_node->{$f_change}['und'][$i]['target_id'] = $r_node->nid;
+                $i_node->{$f_change}['und'][]['target_id'] = $r_node->nid;
             }
         }
 
