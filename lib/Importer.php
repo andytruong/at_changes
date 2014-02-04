@@ -58,13 +58,13 @@ class Importer
 
             $commit = $this->getCommitObject($commit);
             $c_node = $commit->saveAsNode();
-            drush_print_r("[Commit #{$c_node->nid}] {$c_node->title}");
+            function_exists('drush_print_r') && drush_print_r("[Commit #{$c_node->nid}] {$c_node->title}");
 
             if ($issue_nid = $commit->getIssueNID()) {
                 $issue = $this->getIssueObject($commit->getIssueNID());
                 $i_node = $issue->saveAsNode();
 
-                drush_print_r(" > [Issue #{$i_node->nid}] {$i_node->title}");
+                function_exists('drush_print_r') && drush_print_r(" > [Issue #{$i_node->nid}] {$i_node->title}");
             }
         }
     }
