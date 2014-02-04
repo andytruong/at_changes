@@ -253,9 +253,79 @@ function changes_features_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_changenotice_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_changenotice_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_commit_pattern';
+  $strongarm->value = 'commit/[node:commit_sha1]';
+  $export['pathauto_node_commit_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_issue_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_issue_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'save_continue_changenotice';
+  $strongarm->value = 'Save and add fields';
+  $export['save_continue_changenotice'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'save_continue_commit';
+  $strongarm->value = 'Save and add fields';
+  $export['save_continue_commit'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'save_continue_issue';
+  $strongarm->value = 'Save and add fields';
+  $export['save_continue_issue'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'site_frontpage';
+  $strongarm->value = 'commits';
+  $export['site_frontpage'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'site_name';
+  $strongarm->value = 'Drupal Changes';
+  $export['site_name'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'tagclouds_block_tags_1';
   $strongarm->value = '999';
   $export['tagclouds_block_tags_1'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'theme_default';
+  $strongarm->value = 'bootstrap';
+  $export['theme_default'] = $strongarm;
 
   return $export;
 }
