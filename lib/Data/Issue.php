@@ -60,7 +60,10 @@ class Issue
         $i_node->status = 1;
         $i_node->title = $this->title;
         $i_node->created = $i_node->changed = $this->date;
-        $i_node->body['und'][0] = $this->body;
+        $i_node->body['und'][0] = str_replace(
+          array('src="/files/'),
+          array('src="https://drupal.org/files/'),
+          $this->body);
         $i_node->uid = 1;
         $i_node->{$f_nid}['und'][0]['value'] = $this->issue_id;
 
